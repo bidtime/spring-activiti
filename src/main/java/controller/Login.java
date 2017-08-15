@@ -11,23 +11,26 @@ import service.LoginService;
 
 @Controller
 public class Login {
+	
 	@Autowired
 	LoginService loginservice;
 	
 	@RequestMapping("/loginvalidate")
 	public String loginvalidate(@RequestParam("username") String username,@RequestParam("pic") String pic,@RequestParam("password") String pwd,HttpSession httpSession){
-		String picode=(String) httpSession.getAttribute("rand");
-		if(!picode.equalsIgnoreCase(pic))
+		String picode = (String) httpSession.getAttribute("rand");
+		if( picode == null || !picode.equalsIgnoreCase(pic)) {
 			return "failcode";
-		if(username==null)
+		}
+		if ( username == null ) {
 			return "login";
-		String realpwd=loginservice.getpwdbyname(username);
-		if(realpwd!=null&&pwd.equals(realpwd))
-		{
+		}
+		String realpwd = loginservice.getpwdbyname(username);
+		if ( realpwd != null && pwd.equals(realpwd)) {
 			httpSession.setAttribute("username", username);
 			return "index";
-		}else
+		} else {
 			return "fail";
+		}
 	}
 	
 	@RequestMapping("/login")

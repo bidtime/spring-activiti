@@ -1,3 +1,17 @@
+# spring-activiti
+this is a activiti demo, 
+来源于 github.com/shenzhanwang/Spring-activiti.git，
+
+此版本改进如下：
+1.增加request链接访问的日志输出,使读者可以快速切入主题，提高阅读代码的速度
+2.将activiti由原来的 5.7.13 升级 至 5.22.0
+3.spring、mybatis的jar包升级
+4.更改了原有的几个bug
+
+-------------------------------------------------------------------
+
+引述自：https://github.com/shenzhanwang/Spring-activiti.git
+
 # Spring-activiti
   在常用的ERP系统、OA系统的开发中，工作流引擎是一个必不可少的工具。本项目旨在基于Spring这一平台，整合业界流行的工作流引擎Activiti，并建立了两个完整的工作流进行演示：请假OA和采购流程。
 
@@ -27,3 +41,4 @@
  ![alt text](https://github.com/shenzhanwang/Spring-activiti/blob/master/%E6%88%AA%E5%9B%BE/5.jpg)
   ![alt text](https://github.com/shenzhanwang/Spring-activiti/blob/master/%E6%88%AA%E5%9B%BE/6.jpg)
    ![alt text](https://github.com/shenzhanwang/Spring-activiti/blob/master/%E6%88%AA%E5%9B%BE/7.jpg)
+

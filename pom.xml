@@ -1,24 +1,54 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>shenzhanwang</groupId>
-  <artifactId>Spring-activiti</artifactId>
+  <groupId>org.bidtime.utils</groupId>
+  <artifactId>spring-activiti</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Spring-activiti</name>
+  <version>0.0.1</version>
+  <name>spring-activiti</name>
   <url>http://maven.apache.org</url>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.sourceVersion>1.8</project.build.sourceVersion>
+    <project.build.targetVersion>1.8</project.build.targetVersion>
+    <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+    <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+    <maven-surefire-plugin.version>2.19</maven-surefire-plugin.version>
+    <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+    <junit.version>4.12</junit.version>
+    <lombok.version>1.16.16</lombok.version>
+    <!-- servlet dependencies -->
+    <servlet-api.version>3.1.0</servlet-api.version>
+    <!-- logging dependencies -->
+    <slf4j.version>1.7.25</slf4j.version>
+    <log4j.version>1.2.17</log4j.version>
+ 
+     <!-- spring dependencies -->
+    <spring.version>4.2.9.RELEASE</spring.version>
+    <spring-boot.version>1.5.4.RELEASE</spring-boot.version>
+    <spring-data-commons.version>1.12.10.RELEASE</spring-data-commons.version>
+    <spring-data-redis.version>1.7.10.RELEASE</spring-data-redis.version>
+    <mybatis.version>3.4.4</mybatis.version>
+    <mybatis-spring.version>1.3.1</mybatis-spring.version>
+    
+    <activiti-engine.version>5.22.0</activiti-engine.version>
+    <activiti-spring.version>5.22.0</activiti-spring.version>
+ 
+  </properties>
+  
   <dependencies>
     <dependency>  
             <groupId>log4j</groupId>  
             <artifactId>log4j</artifactId>  
-            <version>1.2.16</version>  
+            <version>${log4j.version}</version>  
         </dependency>  
         <!-- servlet API -->  
         <dependency>  
             <groupId>javax.servlet</groupId>  
             <artifactId>javax.servlet-api</artifactId>  
-            <version>3.1-b09</version>  
-            <scope>provided</scope>  
+            <version>${servlet-api.version}</version>  
+            <scope>provided</scope>
         </dependency>  
         <!-- MySQL驱动 -->  
         <dependency>  
@@ -48,49 +78,49 @@
         <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.0.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>4.0.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
         <!-- spring -->  
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-core</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
         <dependency>   
 		   <groupId>org.springframework</groupId>   
 		   <artifactId>spring-context-support</artifactId>
-		   <version>4.0.4.RELEASE</version>
+		   <version>${spring.version}</version>
   		</dependency>
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-context</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-jdbc</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-beans</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
      
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-expression</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-orm</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
         <!-- aspectjweaver -->  
         <dependency>  
@@ -151,12 +181,12 @@
 		<dependency>  
 		   <groupId>org.mybatis</groupId>  
 		   <artifactId>mybatis</artifactId>  
-		   <version>3.2.2</version>  
+		   <version>${mybatis.version}</version>  
 		 </dependency> 
 		<dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis-spring</artifactId>
-		    <version>1.3.0</version>
+		    <version>${mybatis-spring.version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.github.pagehelper</groupId>
@@ -166,12 +196,12 @@
 		 <dependency>
 	      <groupId>org.activiti</groupId>
 	      <artifactId>activiti-engine</artifactId>
-	      <version>5.18.0</version>
+	      <version>${activiti-engine.version}</version>
 	    </dependency>
 	    <dependency>
 	      <groupId>org.activiti</groupId>
 	      <artifactId>activiti-spring</artifactId>
-	      <version>5.18.0</version>
+	      <version>${activiti-spring.version}</version>
 	    </dependency>
 	    <!-- https://mvnrepository.com/artifact/jstl/jstl -->
 		<dependency>
@@ -181,10 +211,9 @@
 		</dependency>
 	    
   </dependencies>
+
   <build>
-    <finalName>Spring-activiti</finalName>
+    <finalName>spring-activiti</finalName>
   </build>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+  
 </project>

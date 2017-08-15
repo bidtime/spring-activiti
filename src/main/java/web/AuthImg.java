@@ -9,6 +9,7 @@ import java.awt.image.*;
 import java.util.*;
 import javax.imageio.*;
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns={"/WEB-INF/content/authImg.jsp"})
 public class AuthImg extends HttpServlet
 {

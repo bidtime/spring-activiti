@@ -2,7 +2,6 @@ package mapper;
 
 import java.util.List;
 
-import po.Permission;
 import po.Role;
 import po.Role_permission;
 import po.User_role;

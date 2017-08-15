@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     
- <!-- 配置Activiti -->
+	<!-- 配置Activiti -->
 	<bean id="processEngineConfigureation" class="org.activiti.spring.SpringProcessEngineConfiguration">
 		<property name="dataSource" ref="dataSource" />
 		<property name="transactionManager" ref="transactionManager" />
@@ -18,14 +18,17 @@
 		<property name="activityFontName" value="宋体"></property>
 		<property name="labelFontName" value="宋体"></property>
 	</bean>
+	
 	<bean id="processEngineFactory" class="org.activiti.spring.ProcessEngineFactoryBean">
 		<property name="processEngineConfiguration" ref="processEngineConfigureation" />
 	</bean>
+	
 	<bean id="repositoryService" factory-bean="processEngineFactory" factory-method="getRepositoryService" />
 	<bean id="runtimeService" factory-bean="processEngineFactory" factory-method="getRuntimeService" />
 	<bean id="formService" factory-bean="processEngineFactory" factory-method="getFormService" />
 	<bean id="identityService" factory-bean="processEngineFactory" factory-method="getIdentityService" />
 	<bean id="taskService" factory-bean="processEngineFactory" factory-method="getTaskService" />
 	<bean id="historyService" factory-bean="processEngineFactory" factory-method="getHistoryService" />
-	<bean id="managementService" factory-bean="processEngineFactory" factory-method="getManagementService" />   
+	<bean id="managementService" factory-bean="processEngineFactory" factory-method="getManagementService" />
+	
 </beans>

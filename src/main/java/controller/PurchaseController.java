@@ -21,27 +21,24 @@ import org.activiti.engine.task.Task;
 import org.activiti.engine.task.TaskQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
+
 import pagemodel.DataGrid;
 import pagemodel.HistoryProcess;
-import pagemodel.LeaveTask;
 import pagemodel.MSG;
 import pagemodel.PurchaseTask;
 import pagemodel.RunningProcess;
-import po.LeaveApply;
 import po.PurchaseApply;
 import po.Role;
 import po.User;
 import po.User_role;
 import service.PurchaseService;
 import service.SystemService;
-
-import com.alibaba.fastjson.JSON;
 
 @Controller
 public class PurchaseController {

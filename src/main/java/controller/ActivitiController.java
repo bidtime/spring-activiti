@@ -2,7 +2,6 @@ package controller;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +39,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.alibaba.fastjson.JSON;
+
 import pagemodel.DataGrid;
 import pagemodel.HistoryProcess;
 import pagemodel.LeaveTask;
@@ -54,10 +55,9 @@ import po.User_role;
 import service.LeaveService;
 import service.SystemService;
 
-import com.alibaba.fastjson.JSON;
-
 @Controller
 public class ActivitiController {
+	
 	@Autowired
 	RepositoryService rep;
 	@Autowired
@@ -372,7 +372,7 @@ public class ActivitiController {
 	
 	@RequestMapping(value="/dealtask")
 	@ResponseBody
-	public String taskdeal(@RequestParam("taskid") String taskid,HttpServletResponse response){
+	public String dealtask(@RequestParam("taskid") String taskid,HttpServletResponse response){
 		Task task=taskservice.createTaskQuery().taskId(taskid).singleResult();
 		ProcessInstance process=runservice.createProcessInstanceQuery().processInstanceId(task.getProcessInstanceId()).singleResult();
 		LeaveApply leave=leaveservice.getleave(new Integer(process.getBusinessKey()));
@@ -519,7 +519,10 @@ public class ActivitiController {
 	                            .getDeployedProcessDefinition(process.getProcessDefinitionId()),  
 	                    historicActivityInstances); 
 		
-		InputStream in=gen.generateDiagram(bpmnmodel, "png", activeActivityIds,highLightedFlows,"宋体","宋体",null,1.0);
+	    InputStream in=gen.generateDiagram(bpmnmodel, "png", activeActivityIds, highLightedFlows, 
+	    		"宋体", "宋体", "宋体", null, 1.0);
+	    
+		//InputStream in=gen.generateDiagram(bpmnmodel, "png", activeActivityIds, highLightedFlows,"宋体","宋体",(ClassLoader)(null),1.0);
 	    //InputStream in=gen.generateDiagram(bpmnmodel, "png", activeActivityIds);
 	    ServletOutputStream output = response.getOutputStream();
 		IOUtils.copy(in, output);

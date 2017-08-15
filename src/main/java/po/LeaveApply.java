@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import org.activiti.engine.task.Task;
 
+@SuppressWarnings("serial")
 public class LeaveApply implements Serializable{
 	int id;
 	String process_instance_id;
