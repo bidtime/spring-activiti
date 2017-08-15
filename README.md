@@ -1,15 +1,15 @@
 # spring-activiti
 this is a activiti + spring 应用, 包含两个工作流：
-1.请假OA
-2.采购流程
+1.请假OA；
+2.采购流程。
 
 本代码来源于 github.com/shenzhanwang/Spring-activiti.git，
 
 此版本改进如下：
-1.增加request链接访问的日志输出,使读者可以快速切入主题，提高阅读代码的速度
-2.将activiti由原来的 5.7.13 升级 至 5.22.0
-3.spring、mybatis的jar包升级
-4.更改了原有的几个bug
+1.增加request链接访问的日志输出,使读者可以快速切入主题，提高阅读代码的速度；
+2.将activiti由原来的 5.7.13 升级 至 5.22.0；
+3.spring、mybatis的jar包升级；
+4.更改了原有的几个bug。
 
 -------------------------------------------------------------------
 
