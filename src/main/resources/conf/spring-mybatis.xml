@@ -17,34 +17,34 @@
     http://www.springframework.org/schema/util 
     http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-		destroy-method="close"
-		p:driverClass="com.mysql.jdbc.Driver"
-		p:jdbcUrl="jdbc:mysql://172.16.107.196:3306/activiti_5_22"
-		p:user="root"
-		p:password="123456"
-		p:maxPoolSize="40"
-		p:minPoolSize="2"
-		p:initialPoolSize="2"
-		p:maxIdleTime="30"/>
+  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	destroy-method="close"
+	p:driverClass="com.mysql.jdbc.Driver"
+	p:jdbcUrl="jdbc:mysql://172.16.107.196:3306/activiti_5_22"
+	p:user="root"
+	p:password="123456"
+	p:maxPoolSize="40"
+	p:minPoolSize="2"
+	p:initialPoolSize="2"
+	p:maxIdleTime="30"/>
     
-    <!-- mybatis文件配置，扫描所有mapper文件 -->
-      <bean id="sqlSessionFactory"
-          class="org.mybatis.spring.SqlSessionFactoryBean"
-          p:dataSource-ref="dataSource"
-          p:configLocation="classpath:conf/mybatis-config.xml"
-          p:mapperLocations="classpath:mapper/*.xml"/> <!-- configLocation为mybatis属性 mapperLocations为所有mapper-->
+  <!-- mybatis文件配置，扫描所有mapper文件 -->
+  <bean id="sqlSessionFactory"
+      class="org.mybatis.spring.SqlSessionFactoryBean"
+      p:dataSource-ref="dataSource"
+      p:configLocation="classpath:conf/mybatis-config.xml"
+      p:mapperLocations="classpath*:org.bidtime.activiti.server.provider.service/**/*.xml"/> <!-- configLocation为mybatis属性 mapperLocations为所有mapper-->
       
-   <!-- spring与mybatis整合配置，扫描所有mapper -->
- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-        p:basePackage="mapper" 
+  <!-- spring与mybatis整合配置，扫描所有mapper -->
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
+        p:basePackage="org.bidtime.activiti.server.provider.service.**.dao" 
         p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
  
-   <!-- 对数据源进行事务管理 -->
+  <!-- 对数据源进行事务管理 -->
   <bean id="transactionManager" 
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
         p:dataSource-ref="dataSource"/>
         
- <tx:annotation-driven transaction-manager="transactionManager"/>
+  <tx:annotation-driven transaction-manager="transactionManager"/>
         
 </beans>

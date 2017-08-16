@@ -3,14 +3,16 @@
   <welcome-file-list>
     <welcome-file>/content/login.jsp</welcome-file>
   </welcome-file-list>
+  
   <!-- 读取spring配置文件 -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-		classpath:conf/spring-mybatis.xml
-		classpath:conf/spring-activiti.xml
-		</param-value>
-	</context-param>
+  <context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>
+	  classpath:conf/spring-mybatis.xml
+	  classpath:conf/spring-activiti.xml
+	</param-value>
+  </context-param>
+  
   <!-- Spring字符集过滤器 -->
 	<filter>
 		<filter-name>SpringEncodingFilter</filter-name>
@@ -24,6 +26,7 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
+	
 	<filter-mapping>
 		<filter-name>SpringEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
@@ -43,15 +46,18 @@
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
+  
   <!-- 启动spring -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener
 		</listener-class>
   </listener>
+  
   <context-param>
     <param-name>webAppRootKey</param-name>
     <param-value>spring-activiti.root</param-value>
-  </context-param> 
+  </context-param>
+  
   <!-- spring mvc配置 -->
   <servlet>
     <servlet-name>sakila</servlet-name>
@@ -64,8 +70,10 @@
 	</init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  
   <servlet-mapping>
     <servlet-name>sakila</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  
 </web-app>

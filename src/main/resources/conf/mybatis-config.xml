@@ -2,8 +2,10 @@
 <!DOCTYPE configuration 
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <configuration>
-	<plugins>
+<plugins>
+	
     <!-- com.github.pagehelper为PageHelper类所在包名 -->
     <plugin interceptor="com.github.pagehelper.PageHelper">
         <!-- 4.0.0以后版本可以不设置该参数 -->
@@ -32,5 +34,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <!-- always总是返回PageInfo类型,check检查返回类型是否为PageInfo,none返回Page -->
         <property name="returnPageInfo" value="none"/>
     </plugin>
+
 </plugins>
 </configuration>
